@@ -31,13 +31,13 @@ def patient_only(view_func):
 	def wrapper_function(request,*args, **kwargs):
 		group = None
 		if request.user.groups.exists():
-			group = request.user.groups.all()[2].name
+			group = request.user.groups.all()[0].name
 
 		if group == 'doctors':
-			return redirect('doctors')
+			return redirect('Doctor_homepage')
 
 		if group == 'nurses':
-			return redirect('Nurse')
+			return redirect('Nurse_homepage')
 
 		if group == 'patients':
 			return view_func(request,*args, **kwargs)
@@ -51,13 +51,13 @@ def nurse_only(view_func):
 	def wrapper_function(request,*args, **kwargs):
 		group = None
 		if request.user.groups.exists():
-			group = request.user.groups.all()[1].name
+			group = request.user.groups.all()[0].name
 
 		if group == 'patients':
-			return redirect('Patient')
+			return redirect('Patient_homepage')
 
 		if group == 'doctors':
-			return redirect('doctors')
+			return redirect('Doctor_homepage')
 
 		if group == 'nurses':
 			return view_func(request,*args, **kwargs)
@@ -74,10 +74,10 @@ def doctor_only(view_func):
 			group = request.user.groups.all()[0].name
 
 		if group == 'patients':
-			return redirect('Patient')
+			return redirect('Patient_homepage')
 
 		if group == 'nurses':
-			return redirect('Nurse')
+			return redirect('Nurse_homepage')
 
 		if group == 'doctors':
 			return view_func(request,*args, **kwargs)
