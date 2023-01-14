@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> hospital managment</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<style>
+	*
+{
+    padding: 0;
+    margin: 0;
+}
+body
+{
+
+    background:gray;
+   
+}
+.menu-bar
+{
+    
+    background: #191970;
+    text-align: center;
+
+}
+.menu-bar ul
+{
+    display:inline-flex;
+    list-style: none;
+    color:black;
+}
+.menu-bar ul li
+{
+    
+    width:120px;
+    margin:10px;
+    padding: 10px;
+}
+.menu-bar ul li a
+{
+    text-decoration:none ;
+    color:white;
+}
+ .active, .menu-bar ul li :hover
+ {
+    background:gray ;
+   border-radius: 3px;
+ }
+ul li ul.dropdown li
+{
+display: block;
+}
+ul li ul.dropdown
+{
+    width:150px;
+    background:#191970;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+ul li a:hover
+{
+    background: #191970;
+}
+ul li:hover ul.dropdown
+{
+    display: block;
+}
+.contact
+{
+    width: ;
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contact .content
+{
+    max-width: 800px;
+    text-align:center;
+
+}
+.contact .content h2
+{
+    font-size: 36px;
+    font-weight: 500;
+    color:black;
+
+}
+.contact .content p
+{
+
+    font-weight: 300;
+    color:black;
+
+}
+.container
+{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px ;
+}
+.container .contactInfo
+{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contactInfo .box
+{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container .contactInfo .box .icon
+{
+    min-width: 60px;
+    height: 60px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    font-size: 22px;
+}
+.container .contactInfo .box .text
+{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color:white;
+    flex-direction: column;
+    font-weight: 300;
+}
+.container .contactInfo .box .text h3
+{
+    font-weight: 500;
+    color:#191970;
+}
+.contactForm
+{
+    width: 40%;
+    padding:40px;
+    background: white;
+}
+.contactForm h2
+{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.contactForm .inputBox
+{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input 
+{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border:none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+} 
+
+.contactForm .inputBox textarea
+{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border:none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+.contactForm .inputBox span
+{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color:#666;
+}
+.contactForm .inputBox input:focus~span
+{
+    color: #e91e63;
+    font-size:12px;
+    transform:translateY(-20px);
+}
+.contactForm .inputBox span:valid~span
+{
+    color: #e91e63;
+    font-size:12px;
+    transform:translateY(-20px);
+}
+.contactForm .inputBox textarea:focus~span
+{
+    color: #e91e63;
+    font-size:12px;
+    transform:translateY(-20px);
+}
+.contactForm .inputBox textarea:valid~span
+{
+    color: #e91e63;
+    font-size:12px;
+    transform:translateY(-20px);
+}
+
+
+
+
+.contactForm .inputBox input[type="submit"]
+{
+    width: 100px;
+    background:#191970;
+    color:white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px; 
+}
+@media(max-width:991px)
+{
+    .content
+    {
+        padding: 50px;
+    }
+    .container
+    {
+        flex-direction: column;
+    }
+    .container.contactInfo
+    {
+        margin-bottom: 40px;
+    }
+    .container .contactInfo
+    {
+        width: 100%;
+    }
+}
+
+.center
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50% , -50%) ;
+    width:400px;
+    background: white;
+    border-radius: 10px;
+}
+
+.center h1
+{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+.center form
+{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .txt_field
+{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.txt_field input
+{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_field label
+{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+
+}
+.txt_field span::before
+{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #2692d9;
+    transition: .5s;
+}
+.txt_field input:focus ~ label
+{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:valid ~ label
+{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:focus ~ label::before
+{
+  width: 100%;
+}
+.txt_field input:valid ~ label::before
+{
+    width: 100%;
+
+}
+.pass
+{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+.pass:hover
+{
+    text-decoration: underline;
+}
+input[type="submit"]
+{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+input[type="submit"]:hover
+{
+    border-color: #2691d9;
+    transition: .5s;
+}
+.sigup_link
+{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+.sigup_link a
+{
+    color:#2691d9;
+    text-decoration: none;
+}
+.sigup_link a:hover
+{
+    text-decoration: underline;
+}
+
+.test {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-group
+{
+    margin-bottom: 30px;
+    position: relative;
+}
+input
+{
+    width: 50%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    font-size: 15px;
+}
+textarea
+{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    font-size: 15px;
+}
+label
+{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color: white;
+    cursor: text;
+    transition: .2s;
+
+}
+.test .input-group input[type="submit"]
+{
+    width: 60px;
+    background:#191970;
+    color:white;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 14px; 
+}
+input:focus~label
+{
+    top: -35px;
+    font-size: 14px;
+
+}
+input:valid~label
+{
+    top: -35px;
+    font-size: 14px;
+}
+textarea:focus~label
+{
+    top: -35px;
+    font-size: 14px;
+
+}
+textarea:focus~label
+{
+    top: -35px;
+    font-size: 14px;
+
+}
+.test form
+{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.row1 
+{
+ width: 50%;
+}
+.row2
+{
+    width: 50%;
+}
+.row3
+{
+    width: 50%;
+}
+</style>
+</head>
+
+<body>
+    <div class="menu-bar">
+		<ul>
+	<li><a href="#"> navbar</a></li>
+	<li><a href="#">contact us</a></li>
+	
+</ul>
+</div>
+
+
+		<!--contact us section-->
+		<section class="contact">
+			<div class="content">
+				<h2>contact us</h2>
+				<p>we are here for you</p>
+			</div>
+			<div class="container">
+			  <div class="contactInfo">
+				<div class="box">
+				<div class="icon">&#10146;
+				</div>
+				<div class="text">
+					<h3>Address</h3>
+					<p>84100 beer-sheva,<br>bialik 56</p>
+
+				</div>
+				</div>
+				<div class="box">
+					<div class="icon">&#9743;</div>
+					<div class="text">
+						<h3>Phone</h3>
+						<p> 054-9738438</p>
+					</div>
+				</div>
+				<div class="box">
+					<div class="icon">&#xf4ad;
+                    </div>
+					<div class="text">
+						<h3>Email</h3>
+						<p>waelab1@ac.sce.ac.il<br>rasheab2@ac.sce.ac.il</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	</body> 
+
+	</html>
