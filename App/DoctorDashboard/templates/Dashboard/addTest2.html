@@ -1,0 +1,20 @@
+{% extends 'Dashboard/doctorDashboard.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Add Test{% endblock title %}
+
+{% block admin-content %}   
+
+ <form method='post'>  
+    {% csrf_token %}  
+    <input class="big-input" type='text' name='text'/> 
+
+    <input class="text-blue-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out" type="submit" value='Add' /> 
+ </form> 
+<style>  
+    .big-input {
+        width: 600px;
+        height: 500px;
+    }
+</style> 
+{%endblock %}
